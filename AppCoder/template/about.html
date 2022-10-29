@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta name="theme-color" content="#4527a0">
+    <title>Acerca de</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Raleway', sans-serif;
+      }
+
+      .container{
+        width:1000%;
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background: url(https://images.unsplash.com/photo-1663875942232-07e9e32555e0?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjU0MTMxODA&ixlib=rb-1.2.1&q=80);
+        background-size:cover;
+      }
+
+      .content{
+        margin:1px;
+        width:300px;
+        height:400px;
+        background: rgba(257, 257, 257, 0.7);
+        backdrop-filter: blur( 1.2px );
+        border-radius: 10px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        
+      }
+
+      figure{
+        max-width:100%;
+        display:block;
+        text-align:center;
+        padding:1px;
+
+        
+      }
+      figure .im{
+        width: 180px;
+        height:180px;
+        border-radius:50%;
+        object-fit: cover;
+        object-position:center;
+        
+
+      }
+
+      figure::before{
+        content:'';
+        width:20px;
+        height:20px;
+        border: 2px solid orangered; 
+        border-radius:50%;
+        position:absolute;
+        top:10px;
+        right:10px;
+      }
+      figure::after{
+        content:'';
+        width:20px;
+        height:20px;
+        border-radius:8px;
+        border: 2px solid orange; 
+        position:absolute;
+        top:20px;
+        right:20px;
+      }
+      header{
+        width:100%;
+        text-align:center;
+      }
+
+      header h1{
+        padding:10px;
+        font-size:23px;
+        letter-spacing:0.1em;
+        font-weight:500;
+      }
+      header p{
+        font-size:16px;
+        padding:5px 10px;
+        
+      }
+
+      .bootom{
+        width:100%;
+        height:auto;
+        padding:20px 10px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+      .card{
+        display:flex;
+        gap:5px;
+      }
+
+      .card div{
+      width:30px;
+        height:30px;
+        background: #fff;
+        border-radius:50px;
+        display:flex;
+        justify-content:center;
+        margin:0;
+        padding:0;
+        align-items:center;
+      }
+
+      .foo{
+        display:flex;
+        gap: 10px;
+        width:100%;
+        padding:20px 0px;
+      }
+      .foo a:nth-child(2){
+        border:1px solid orangered;
+        background: none;
+        color: #000;
+      }
+      .foo a{
+        width: 100%;
+        border-radius:5px;
+        padding:7px;
+        text-align:center;
+        text-decoration:none;
+        color:#fff;
+        background: #000;
+        font-size:14px;
+        border: 1px solid #000;
+      }
+
+      .card div svg{
+        width:20px;
+      }
+    </style>
+
+    <section class="container">
+      <div class="content">
+        <header>
+          <figure>
+          <img class='im' src="{%static 'assets/creador.jpeg'%}" alt="none">
+            </figure>
+          <h1>Francisco Ruiz</h1>
+          <p>Desarrollador Fullstack</p>
+          <p><svg viewBox="0 0 384 512" width="10" title="map-marker-alt">
+      <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+    </svg> CDMX, México</p>
+        </header>
+        
+          <!--<div class="foo">
+            <a href="#">Message</a>
+            <a href="#">E-mail</a>
+          </div>-->
+        </div>
+      </div>
+    </section>
+
+
+    
+  </html>

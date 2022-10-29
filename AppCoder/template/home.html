@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/myestilo.css'%}">
+    <link rel="stylesheet" href="{%static 'css/product.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Interno</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/interno/home/pages/">Home</a>
+                    </li>
+                    <li class="nav-item" style="position: absolute; right: 250px">
+                        <img src="{{ avatar }}" width="40px">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/about/">Acerca de</a>
+                    </li>
+                    <li class="nav-item" style="position: absolute; right: 100px">
+                        <a class="nav-link active" aria-current="page" href="/interno/perfil/">{{ user.username }}</a>
+                    </li>
+                    <li class="nav-item" style="position: absolute; right: 0px">
+                        <a class="nav-link active" aria-current="page" href="/interno/logout/">Salir</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link active" aria-current="page" href="/interno/regitrarblog/">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="contenido1">
+        <!-- <h1 class="animate__animated animate__bounce">An animated element</h1>-->
+        {% block contenido %}
+        <main>
+            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+              <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <h1 class="display-4 fw-normal">Blogs</h1>
+                <p class="lead fw-normal">Aquí podrás ver los blogs de todos los usuarios, en conjunto y seleccionar alguno</p>
+                <a class="btn btn-outline-secondary" href="/interno/regitrarblog/">Registrar blog</a>
+              </div>
+              <div class="product-device shadow-sm d-none d-md-block"></div>
+              <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+            </div>
+          
+            <!--       -->
+
+            {% if blogs %}
+                {% for blogs in blogs %}
+                
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location.href='/interno/home/pages/blog/?id={{blogs.id}}'">
+                      <div class="my-3 py-3">
+                        <h2 class="display-5">{{blogs.titulo}}</h2>
+                        <p class="lead">{{blogs.subtitulo}}</p>
+                      </div>
+                      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                        <img src="{{blogs.imagenBlog.imagen.url}}"></div>
+                    </div>
+                    <!--<div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                      <div class="my-3 p-3">
+                        <h2 class="display-5">Another headline</h2>
+                        <p class="lead">And an even wittier subheading.</p>
+                      </div>
+                      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                    </div>-->
+                </div>
+                {% endfor %}
+                
+            {% endif %}
+            
+            </div>
+          </main>
+        {% endblock %}
+    </div>
+</body>
+</html>

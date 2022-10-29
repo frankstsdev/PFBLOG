@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% load static %}
+
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+{% block contenido %} 
+    <div class="text-center">
+        <h1>Datos de perfil</h1>
+        <ul class="text-center">
+            <li><h5>Username:</h5> {{ user.username }}</li>
+            <li><h5>Email:</h5> {{ user.email }}</li>
+            <li><h5>First name:</h5> {{ user.first_name }}</li>
+            <li><h5>Last name:</h5> {{ user.last_name }}</li>
+        </ul>
+        <a class="btn btn-success" style="text-decoration: none; color: white" href="/interno/perfil/editarPerfil">Editar Perfil</a>
+        <a class="btn btn-success" style="text-decoration: none; color: white" href="/interno/perfil/changeAvatar">Cambiar imagen de perfil</a>
+    </div>    
+{% endblock %}
