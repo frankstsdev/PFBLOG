@@ -27,7 +27,7 @@ def home(request):
         print(blogs[0].imagenBlog.imagen.url)
         return render(request, 'home.html', {'avatar':avatar,'blogs':blogs})
     else:
-        return render(request, 'home.html', {'avatar':avatar})
+        return render(request, 'home.html', {'avatar':avatar,'msg':'no hay blogs que mostrar'})
 
 @login_required
 def blog(request):
@@ -54,8 +54,13 @@ def Registrarblog(request):
                 avatar = avatar[0].image.url
             except:
                 avatar = None           
-            return render(request, 'home.html', {'avatar': avatar})
-            #return render(request, "registraBlog.html")
+            #return render(request, 'home.html', {'avatar': avatar})
+            blogs = Blogs.objects.all()
+            if(blogs != None):
+                print(blogs[0].imagenBlog.imagen.url)
+                return render(request, 'home.html', {'avatar':avatar,'blogs':blogs})
+            else:
+                return render(request, 'home.html', {'avatar':avatar,'msg':'no hay blogs que mostrar'})
     else:
         avatar = IMGUser.objects.filter(user = request.user.id)
         try:
@@ -89,7 +94,7 @@ def login_request(request):
                     print(blogs[0].imagenBlog.imagen.url)
                     return render(request, 'home.html', {'avatar':avatar,'blogs':blogs})
                 else:
-                    return render(request, 'home.html', {'avatar':avatar})
+                    return render(request, 'home.html', {'avatar':avatar,'msg':'no hay blogs que mostrar'})
                 
             else:
                 return render(request, "login.html", {'form':form})
@@ -100,13 +105,14 @@ def login_request(request):
 
 def registro(request):
     form = UserRegisterForm(request.POST)
+    print(request.method)
     if request.method == 'POST':
         #form = UserCreationForm(request.POST)       
         #print(form)# debugeee
         if form.is_valid():
             #username = form.cleaned_data["username"]
             form.save()
-            return redirect("/AppCoder/login")
+            return redirect("/interno/login")
         else:#decidi regresar el formulario con error
             return render(request, "registro.html", {'form': form})
     #form = UserCreationForm()

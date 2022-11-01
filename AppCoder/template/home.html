@@ -52,7 +52,12 @@
               <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
           
-            <!--       -->
+            {% if blogs %}
+                <div class="text-center">
+                    <h2>{{msg}}</h2>
+                </div>
+            {% endif %}
+                 
 
             {% if blogs %}
                 {% for blogs in blogs %}
@@ -64,8 +69,8 @@
                         <p class="lead">{{blogs.subtitulo}}</p>
                       </div>
                       <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                        <img src="{{blogs.imagenBlog.imagen.url}}"></div>
-                    </div>
+                        <img src="{{blogs.imagenBlog.imagen.url}}" width="600px"></div>
+                    </div> 
                     <!--<div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                       <div class="my-3 p-3">
                         <h2 class="display-5">Another headline</h2>
@@ -77,6 +82,7 @@
                 {% endfor %}
                 
             {% endif %}
+
             
             </div>
           </main>
