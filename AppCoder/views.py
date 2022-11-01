@@ -92,9 +92,11 @@ def login_request(request):
                 blogs = Blogs.objects.all()
                 if(blogs != None):
                     print(blogs[0].imagenBlog.imagen.url)
-                    return render(request, 'home.html', {'avatar':avatar,'blogs':blogs})
+                    #return render(request, 'home.html', {'avatar':avatar,'blogs':blogs})
+                    return redirect("/interno/home/pages/")
                 else:
-                    return render(request, 'home.html', {'avatar':avatar,'msg':'no hay blogs que mostrar'})
+                    #return render(request, 'home.html', {'avatar':avatar,'msg':'no hay blogs que mostrar'})
+                    return redirect("/interno/home/pages/")
                 
             else:
                 return render(request, "login.html", {'form':form})
